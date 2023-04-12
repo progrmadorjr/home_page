@@ -137,7 +137,7 @@ class _HomeState extends State<Home> {
               child: Center(
                child: Container(
                 //define a porcentagem de acordo com tela *0,7=70%
-                    width: MediaQuery.of(context).size.width * 10,
+                    width: MediaQuery.of(context).size.width * 0.9,
                     height: MediaQuery.of(context).size.height * 0.7,
                   decoration: BoxDecoration(
                    color: Colors.white38,
