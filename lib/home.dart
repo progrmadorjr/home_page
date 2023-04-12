@@ -136,8 +136,9 @@ class _HomeState extends State<Home> {
               Expanded(
               child: Center(
                child: Container(
-                width: MediaQuery.of(context).size.width * 0.8,
-                 height: MediaQuery.of(context).size.height * 0.7,
+                //define a porcentagem de acordo com tela *0,7=70%
+                    width: MediaQuery.of(context).size.width * 10,
+                    height: MediaQuery.of(context).size.height * 0.7,
                   decoration: BoxDecoration(
                    color: Colors.white38,
                     borderRadius: BorderRadius.circular(20),
