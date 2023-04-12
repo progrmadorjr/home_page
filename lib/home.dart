@@ -134,16 +134,16 @@ class _HomeState extends State<Home> {
             children: [
               //Espaço central para inserir codigo
               Expanded(
-                child: Center(
-                  child: Container(
-                    width: 400,
-                    height: 550,
-                    decoration: BoxDecoration(
-                        color: Colors.white38,
-                        borderRadius: BorderRadius.circular(20)),
+              child: Center(
+               child: Container(
+                width: MediaQuery.of(context).size.width * 0.8,
+                 height: MediaQuery.of(context).size.height * 0.7,
+                  decoration: BoxDecoration(
+                   color: Colors.white38,
+                    borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
                 ),
-                //card 1
               ),
               Container(
                 width: double.infinity,
