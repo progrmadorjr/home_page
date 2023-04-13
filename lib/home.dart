@@ -8,6 +8,27 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
+class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller =
+        AnimationController(vsync: this, duration: const Duration(seconds: 2));
+    _animation = Tween<double>(begin: 0, end: 100).animate(_controller)
+      ..addListener(() {
+        setState(() {});
+      });
+    _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
@@ -129,19 +150,45 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
+           //codigo da porcentagem
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              //Espaço central para inserir codigo
               Expanded(
-              child: Center(
-               child: Container(
-                //define a porcentagem de acordo com tela *0,7=70%
+                child: Center(
+                  child: Container(
                     width: MediaQuery.of(context).size.width * 0.9,
                     height: MediaQuery.of(context).size.height * 0.7,
-                  decoration: BoxDecoration(
-                   color: Colors.white38,
-                    borderRadius: BorderRadius.circular(20),
+                    decoration: BoxDecoration(
+                      color: Colors.white38,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: 250,
+                          width: 250,
+                          child: Stack(
+                            fit: StackFit.expand,
+                            children: [
+                              Center(
+                                child: ClipOval(),
+                              ),
+                              CircularProgressIndicator(
+                                value: _animation.value / 100,
+                                strokeWidth: 20,
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          '${_animation.value.toStringAsFixed(0)}%',
+                          style: const TextStyle(fontSize: 30),
+                        ),
+                      ],
                     ),
                   ),
                 ),
