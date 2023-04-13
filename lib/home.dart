@@ -31,8 +31,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   }
 
   @override
-class _HomeState extends State<Home> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 16, 88, 146),
