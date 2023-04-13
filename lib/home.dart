@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_page/contrato.dart';
 import 'package:flutter_page/note.dart';
 
 class Home extends StatefulWidget {
