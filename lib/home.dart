@@ -16,8 +16,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
     _controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 2));
-    _animation = Tween<double>(begin: 0, end: 100).animate(_controller)
+        AnimationController(vsync: this, duration: const Duration(seconds: 4));
+    _animation = Tween<double>(begin: 0, end: 44).animate(_controller)
       ..addListener(() {
         setState(() {});
       });
@@ -98,8 +98,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               ),
               ListTile(
                 leading: const Icon(Icons.description),
-                title: const Text('Politica'),
-                onTap: () => print('clicou'),
+                title: const Text('Contrato'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Contrato()),
+                  );
+                },
               ),
               ListTile(
                 leading: const Icon(Icons.settings),
@@ -174,10 +179,17 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                             fit: StackFit.expand,
                             children: [
                               Center(
-                                child: ClipOval(),
+                                child: ClipOval(
+                                  child: Image.network(
+                                    'https://imgs1.cdn-imobibrasil.com.br/imagens/imoveis/20200228075135862.jpeg',
+                                    width: 250,
+                                    height: 250,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
                               CircularProgressIndicator(
-                                value: _animation.value / 100,
+                                value: _animation.value / 44,
                                 strokeWidth: 20,
                               ),
                             ],
