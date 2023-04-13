@@ -29,6 +29,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     _controller.dispose();
     super.dispose();
   }
+
+  @override
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
